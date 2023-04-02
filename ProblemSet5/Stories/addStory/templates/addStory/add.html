@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'addStory/styles_add.css' %}">
+    <title>Quotes</title>
+</head>
+<body>
+    <h1>Add a quote!</h1>
+    <form method="post" action="{% url 'add' %}">
+        {% csrf_token %}
+        <label for ="id_quote" >Quote:</label>
+        {{form.quote}}
+        <br>
+        <label for = "id_author" >Author:</label>
+        {{form.author}}
+        <br>
+        <input type="submit" value="Share">
+    </form>
+
+    <a href="{% url 'homepage' %}">Read quotes</a>
+</body>
+</html>
+
